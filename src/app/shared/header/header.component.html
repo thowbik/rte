@@ -1,0 +1,148 @@
+<div class="content-header" style="background-color: #2d7464;">
+    <div class="row w-100" >
+        <!-- <div class="notification-block col-lg-5 padding-0">
+            <h3 class="text-center"><img src="assets/img/logo.svg" class="exam-img" alt="Logo Image" />கல்வி உரிமை சட்டம்</h3>
+         </div> -->
+         <div >
+            <img src="assets/img/logo.svg" class="exam-img" alt="Logo Image" />
+         </div>
+         <div >
+            <label style="color:white;padding-top: 25px;font-size:18px">கல்வி உரிமைச் சட்டம்</label><br>
+            <label style="color:rgb(59, 230, 44);font-size:13px" (click)="onLogout()">TAMIL NADU</label>
+         </div>
+         <!-- <div >
+            <button class="form-control">Login</button>
+         </div>
+    -->
+   
+    <!-- <div class="profile-band col-lg-7 flex">
+        <div class="profile-band-block">
+            <div class="profile-img">
+                <img src="assets/img/user.png" class="img-fluid" alt="Profile Image" />
+            </div>
+            <p> -->
+                <!-- <span>{{instDistrict}}</span> -->
+                <!-- <span>{{studentName}}</span>
+                <span>{{className}} {{section}}</span>
+            </p>
+            
+        </div>
+        <div class="profile-band-block">
+            <div class="profile-img pro-sec">
+                <img src="assets/img/school-campus.svg" alt="Profile Image" />
+             
+            </div>
+            <p>
+                <span>{{schoolName}}</span>
+             
+            </p> -->
+          
+            <!-- <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleDropdown()"></button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [ngClass]="isShowDropdown ? 'showDropdown':'hideDropdown'">
+                    <div class="kt-notification ktuserType-scroll" data-scroll="true" data-height="210" data-mobile-height="200">
+                        <a href="#" class="kt-notification__item url-link">
+                            <div class="kt-notification__item-icon">
+                                <i class="flaticon2-user"></i>
+                            </div>
+                            <div class="kt-notification__item-details">
+                                <div class="kt-notification__item-title">
+                                    My Profile
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="kt-notification__item url-link">
+                            <div class="kt-notification__item-icon">
+                                <i class="flaticon2-mail-1"></i>
+                            </div>
+                            <div class="kt-notification__item-details">
+                                <div class="kt-notification__item-title">
+                                    My Inbox
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="kt-notification__item url-link">
+                            <div class="kt-notification__item-icon">
+                                <i class="flaticon-clipboard"></i>
+                            </div>
+                            <div class="kt-notification__item-details">
+                                <div class="kt-notification__item-title">
+                                    My Task
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="kt-notification__item url-link">
+                            <div class="kt-notification__item-icon">
+                                <i class="flaticon-lock"></i>
+                            </div>
+                            <div class="kt-notification__item-details">
+                                <div class="kt-notification__item-title">
+                                    Reset Password
+                                </div>
+                            </div>
+                        </a>
+                        <a (click)="onLogout()" class="kt-notification__item url-link">
+                            <div class="kt-notification__item-icon">
+                                <i class="flaticon-logout"></i>
+                            </div>
+                            <div class="kt-notification__item-details">
+                                <div class="kt-notification__item-title">
+                                   <span>Logout</span> 
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+        <!-- </div>
+        <div class="profile-band-block url" (click)="showConfirmation()">
+            <div class="profile-img pro-sec">
+                <i class="fa fa-sign-out" style="font-size:24px;padding-bottom: 8px;color: #333;" ></i>
+             
+            </div>
+            <p>
+                <span>Logout</span>
+             
+            </p>
+          
+        </div>
+       
+    </div> -->
+</div>
+</div>
+<!-- Page Section / Container -->
+
+
+<div class="page-title-section">
+    <!--Page title section-->
+    <!-- <div>
+        <button pButton type="button" label="Click" (click)="toggleSidebar()"></button>
+        <i class="pi pi-check" style="font-size: 3em"></i>
+        <span>abc</span>
+    </div> -->
+    <h3></h3>
+    <!--breadcrumb section-->
+    <!-- <app-breadcrumb></app-breadcrumb> -->
+</div>
+<!-- <p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog> -->
+<p-dialog [(visible)]="display"  [modal]="true" 
+[responsive]="true" 
+[style]="{width:'45%',height:'50%'}" 
+[minY]="70" 
+[maximizable]="true" 
+[baseZIndex]="10000" >
+    <p-header>
+    Confirmation
+    </p-header>
+    <span> Are you sure you want to Logout ?</span>
+ 
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cancel()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="onLogout()"></button> 
+    </p-footer>
+</p-dialog>

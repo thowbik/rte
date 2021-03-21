@@ -1,0 +1,382 @@
+/* You can add global styles to this file, and also import other style files */
+.counter-text {
+    font-size: 25px !important;
+}
+.text-center {
+    text-align: center;
+}
+/* You can add global styles to this file, and also import other style files */
+.bg-white {
+    background-color: #fff !important;
+    width: 100%;
+    height: 100vh;
+}
+.kt-aside .kt-aside-menu {
+    overflow: scroll;
+    height: 100%;
+}
+.kt-aside .kt-aside-menu::-webkit-scrollbar {
+    width: 0px;
+  }
+body .ui-table .ui-table-thead > tr > th {
+    background-color: #2d7464 !important;
+    color: white !important;
+}
+body .ui-table .ui-sortable-column .ui-sortable-column-icon {
+    color: white !important;
+}
+body .ui-table .ui-table-tbody > tr > td {
+    background-color: inherit;
+    border: 1px solid #c8c8c8;
+    word-wrap: break-word;
+}
+.textbox-filter {
+    width: 100% !important;
+}
+.flex-gap-right {
+    margin-right: 1rem !important;;
+}
+body .pi {
+    font-size: 1.25em;
+    cursor: pointer;
+}
+
+.page-title-section{
+    /* position: fixed; */
+    width: 100%;
+    background: #f0f0f0;
+    z-index: 2;
+    padding-top: 20px;
+    margin-top: -10px;
+    padding-left: 20px;
+    margin-left: -20px;
+}
+
+.main-body-content {
+    float: left;
+    width: 100%;
+    margin-top: 2%;
+    overflow-x: hidden;
+}
+
+.content-header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: #f0f0f0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;
+}
+body .ui-message.ui-message-error {
+    background-color: #f8b7bd;
+    border: 0 none;
+    color: #212121;
+    margin-top: 5px;
+}
+.ui-calendar {
+    position: relative;
+    display: inline-block;
+    width: 100% !important;
+}
+.flex-gap-bottom {
+    margin-bottom: 0.85rem !important;
+}
+.flex-gap-top {
+    margin-top: 0.85rem !important;
+}
+.text-center {
+    text-align: center !important;
+}
+.flex-start-layout {
+    align-items: start !important;
+    place-content: start !important;
+}
+.flex-layout-gap {
+    padding: 15px !important;
+}
+.url {
+    cursor: pointer !important;
+}
+.flex-dropdown {
+    display: flex !important;
+}
+.flex {
+    display: flex !important;  
+}
+
+
+
+
+/* css for auto fit grid */
+/* ::ng-deep  .ui-table table, .ui-table table
+{  table-layout:auto !important;
+}
+::ng-deep .ui-table-tablewrapper {
+    width: auto!important;
+}
+
+::ng-deep .ui-table-resizable {
+    padding-bottom: 1px;
+    width: auto !important;
+} */
+/* .ui-table table {
+    border-collapse: collapse;
+    width: auto !important;
+    table-layout: fixed;
+} */
+/* .ui-table .ui-table-tbody > tr, .ui-table .ui-table-thead > tr > th, .ui-table .ui-table-tfoot > tr > td{
+    max-width: 300px !important;
+    font-size: 12px;
+    padding: 0px !important;
+    padding-left: 4px !important;
+    color: black;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    border-width: 1px;
+} */
+/* css for auto fit grid */
+
+/* css for map*/
+#mapId {
+    height    : 70vh;
+    margin-top: 0px !important;
+    z-index: 0;
+}
+
+/* media query for map starts*/
+
+@media (min-height:200px) and (max-height:399px) {
+    #mapId {
+        height    : 35vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:400px) and (max-height:435px) {
+    #mapId {
+        height    : 40vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:436px) and (max-height:450px) {
+    #mapId {
+        height    : 47vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:451px) and (max-height:500px) {
+    #mapId {
+        height    : 49vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:501px) and (max-height:525px) {
+    #mapId {
+        height    : 50vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:526px) and (max-height:550px) {
+    #mapId {
+        height    : 53vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:551px) and (max-height:575px) {
+    #mapId {
+        height    : 57vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:576px) and (max-height:600px) {
+    #mapId {
+        height    : 60vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:601px) and (max-height:625px) {
+    #mapId {
+        height    : 56vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:626px) and (max-height:650px) {
+    #mapId {
+        height    : 63vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:651px) and (max-height:675px) {
+    #mapId {
+        height    : 64vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:676px) and (max-height:700px) {
+    #mapId {
+        height    : 66vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+@media (min-height:701px) and (max-height:750px) {
+    #mapId {
+        height    : 68vh !important;
+        margin-top: 0px !important;
+        z-index: 0;
+    }
+}
+
+// @media (min-height:751px) and (max-height:800px){
+//   #mapId {
+//     height    : 73vh !important;
+//     margin-top: 0px !important;
+//   }
+// }
+/* media query for map ends*/
+
+
+
+
+
+/* RTE Register Common CSS */
+
+.align {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+body {
+    background: #2d7464;
+    overflow-x: hidden;
+}
+
+.text-bold {
+    font-weight:500;
+}
+
+.bk-color {
+    padding:20px !important;
+    background-color: #2d7464;
+    overflow-y : hidden !important;
+}
+
+.reg-title {
+    color:#2d7464;
+    font-size: 20px;
+    padding-top:15px;
+    padding-left:.25em;
+}
+
+.reg-instruction {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left:.25em;
+}
+
+.header-button {
+    margin-left:15px;
+    font-weight:600;
+    font-size: 15px;
+    width: 170px;
+    margin-bottom: 10px;
+}
+.header-button-color {
+    font-weight:600;
+    font-size: 15px;
+    background-color: #169F5C;
+    border-color: #077e5b;
+    margin-left:15px;
+    width: 170px;
+    margin-bottom: 10px;
+
+}
+
+.form-align {
+    padding-top:20px;
+    padding-left:5px;
+    padding-right:5px;
+    padding-bottom:5px;
+}
+
+.row-header {
+    border:1px solid #f5f2f2;
+    background: #f2f7ef;
+    border-radius: 5px; 
+    padding-bottom:15px
+}
+
+.row-head {
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.row-subhead {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+.tamil-text-color {
+    color:#2d7464;
+}
+
+.save-button {
+    padding-top:25px;
+}
+
+body .ui-inputtext {
+    width:100%;
+}
+.float-right {
+    float: right;
+}
+.warn-msg {
+    font-style: italic;
+    color: #2d7464;
+    margin-bottom: 10px;
+    font-weight: bold;
+}  
+
+.logout-text{
+    color :rgb(255, 255, 255);
+    font-family:Poppins;
+    font-weight: 600px;
+}
+.flex-end {
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    place-content: flex-end flex-start;
+    align-items: flex-end;
+}
+
+.logout-font {
+    font-weight:500;
+}

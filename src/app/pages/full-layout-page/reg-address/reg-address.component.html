@@ -1,0 +1,183 @@
+<div class="row bk-color">
+    <div class="col-lg-12 has-chart align">
+        <p-card>
+            <div class="text-right save-button">
+                <button type="button" pButton icon="pi pi-sign-out" class="logout-font" label="Logout" (click)="showConfirmation()"></button>
+
+                <!-- <button type="submit" class="btn btn-success header-button-color" (click)="showConfirmation()">Logout</button> -->
+            </div>
+            <p-dialog [(visible)]="logoutdisplay"  [modal]="true" 
+[responsive]="true" 
+[style]="{width:'45%'}" 
+ >
+    <p-header>
+    Confirmation
+    </p-header>
+    <span> Are you sure you want to Logout ?</span>
+ 
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cancel()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="onLogout()"></button> 
+    </p-footer>
+</p-dialog>
+
+            <div class="col-lg-12 row">
+                <div class="col-lg-6">
+                <h5 class="reg-title">Student/Parent Registration</h5>
+               
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="reg-title float-right">Application number: {{registerNo}}</h5>
+                </div>
+            </div>
+                  <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-success header-button" (click)="onPersonal()" >1. Personal Details</button>   
+                    <button type="submit" class="btn btn-success header-button" (click)="onParent()" >2. Parent Details</button>
+                    <button type="submit" class="btn btn-success header-button-color" >3. Address Details</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onDocument()" >4. Documents</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onSchool()" >5. Select Schools</button>   
+                  </div>
+                  <fieldset [disabled]="isAllowedToEdit">
+                  <form [formGroup]="addressDetailsForm"  class="form-align">
+                    <div class="row-header">
+                        <div class="row row-head">
+                            <div class="col-md-6">
+                                <label class="text-bold">Residential address(Should be the same as the address proof
+                                    you are
+                                    submitting)</label><br>
+                                <span style="color:#2d7464">[வீட்டு முகவரி]</span>
+                                <input type="text" pInputText class="form-control" formControlName="address">
+                                <p-message severity="error" text="Residential address is required"
+                                    *ngIf="addressDetailsForm.controls.address.errors && (submitted || addressDetailsForm.controls.address.dirty || addressDetailsForm.controls.address.touched)">
+                                </p-message>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="text-bold m-b-20">Pincode </label>
+                                <br>
+                                <span style="color:#2d7464">[அஞ்சல்
+                                    குறியீடு]</span>
+                                    <br>
+                                        <input type="text"  pKeyFilter="pnum" minlength="6" maxlength="6"  pInputText class="form-control m-t-20" formControlName="pincode">
+                                        <p-message severity="error" text="Pincode is required"
+                                            *ngIf="addressDetailsForm.controls.pincode.errors && (submitted || addressDetailsForm.controls.pincode.dirty || addressDetailsForm.controls.pincode.touched)">
+                                        </p-message>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="text-bold m-b-20">District</label>
+                                <br>
+                                <span
+                                        style="color:#2d7464">[மாவட்டம்]</span>
+                                        <p-dropdown [options]="districtList" [disabled]="isAllowedToEdit" class="flex-dropdown m-t-20"
+                                        [style]="{minWidth: '100%'}" formControlName="district_id"
+                                        placeholder="Select a district" [filter]="true"></p-dropdown>
+                                    <p-message severity="error" text="District is required"
+                                        *ngIf="addressDetailsForm.controls.district_id.errors && (submitted || addressDetailsForm.controls.district_id.dirty || addressDetailsForm.controls.district_id.touched)">
+                                    </p-message>
+                            </div>
+                        
+                        </div>
+                      
+                    </div><br>
+
+
+                    <div class="row-header">
+                        <div class="row row-head">
+
+                            <div class="col-md-8">
+                                <label class="text-bold">Enter your address or nearest landmark</label>
+                            </div>
+                         
+                        </div>
+                        <div class="row row-subhead">
+
+                            <div class="col-md-6">
+
+                                <input type="text" pInputText class="form-control flex-gap-bottom" formControlName="map_address">
+                                <p-message severity="error" text="Address or nearest landmark is required"
+                                *ngIf="addressDetailsForm.controls.map_address.errors && (submitted || addressDetailsForm.controls.map_address.dirty || addressDetailsForm.controls.map_address.touched)">
+                            </p-message>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- <button type="submit" class="btn btn-success " (click)="getLocation(addressDetailsForm.value.map_address)">Submit</button> -->
+                            </div>
+                        </div>
+                        
+                        <div *ngIf="isAddressNotFound" class="row" style="
+                        padding-left: 15px;padding-top:10px;color:red">
+                            <div class="col-md-8">
+                                <label class="text-bold">Address Not Found</label>
+                            </div>
+                        </div>
+                        <div class="row" style="
+                        padding-left: 15px;padding-top:10px">
+                            <div class="col-md-8">
+                                <label class="text-bold">Tip: Type your nearest popular area to locate your address
+                                    on the map</label>
+                                   
+                                    <label class="text-bold" style="padding-left: 27px;"> தங்களது இல்லத்தை இயன்ற அளவு துல்லியமாக வரைபடத்தில் குறிக்கவும்</label>
+                                   
+                            </div>
+                        </div>
+  
+                      
+                       
+                    </div>
+                    <!-- <div class="row"> -->
+                            <div class="row easyPrint flex-gap-bottom-bg custom-layout-map"  id="mapId"></div>
+                       
+                    <!-- </div> -->
+                    <div class="row row-subhead">
+
+                        <div class="col-md-6">
+                            <!-- <button type="submit" class="btn btn-success flex-gap-bottom flex-gap-top" (click)="getAddressFromLatLng()">Click here to get Map Address</button> -->
+                          
+                          
+                        </div>
+                    </div>
+                    <div class="row row-subhead">
+
+                        <div class="col-md-6">
+                            <label class="text-bold">Google map address (should be as close as possible to the address proof)</label>
+      <input type="text" pInputText class="form-control" formControlName="map_address" disabled="true">
+      <!-- <label class="text-bold flex-gap-top"><span style="color: red;
+        font-style: italic;
+        padding-right: 15px;">Note:</span>Google map address (should be as close as possible to the address proof) </label>        -->
+                        </div>
+                    </div>
+                  
+                    <div class="text-right" style="padding-top:10px">
+                        <!-- <button type="submit" class="btn btn-success" (click)="showConfirmPopup()">Save</button> -->
+                    </div>
+                </form>
+                  </fieldset>
+                <p-toast [style]="{marginTop: '30px'}"></p-toast>
+        </p-card>
+    </div>
+    <p-dialog header="Confirmation" [(visible)]="display" [style]="{width: '900px', minWidth: '200px'}">
+        <div class="row" style="padding-top:5px">
+            <div class="col-md-6">
+                <label> Your Address :</label>
+            </div>
+            <div class="col-md-6">
+              {{addressDetailsForm.value.address}}
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Your Google Map Address :</label>
+            </div>
+            <div class="col-md-6">
+                {{addressDetailsForm.value.map_address}}
+            </div>
+        </div>
+        <div class="col-lg-12 row">
+            <p class="warn-msg">Note: If your address and the map location are too far apart, your application may be rejected.</p>
+            <p class="warn-msg">தங்களது முகவரிக்கும் தாங்கள் வரைபடத்தில் குறித்துள்ள  இடத்திற்கும் இடைப்பட்ட தூரம் மிக அதிகமாக இருப்பின், தங்கள் விண்ணப்பம் நிராகரிக்கப்படலாம்.</p>
+        </div>
+       
+        <div class="text-right save-button">
+            <button type="submit" class="btn btn-success flex-gap-right" (click)="onSaveAddress()">Confirm Address</button>
+            <button type="submit" class="btn btn-danger" (click)="changeAddress()">Change Address</button>
+        </div>
+    </p-dialog>
+</div>

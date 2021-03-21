@@ -1,0 +1,388 @@
+<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt-content">
+    <div class="content-header" style="background-color: #2d7464;">
+        <div class="row w-100" >
+            <!-- <div class="notification-block col-lg-5 padding-0">
+                <h3 class="text-center"><img src="assets/img/logo.svg" class="exam-img" alt="Logo Image" />கல்வி உரிமை சட்டம்</h3>
+             </div> -->
+             <div >
+                <img src="assets/img/logo.svg" class="exam-img" alt="Logo Image" />
+             </div>
+             <div >
+                <label style="color:white;padding-top: 25px;font-size:18px">கல்வி உரிமைச் சட்டம்</label><br>
+                <label style="color:rgb(59, 230, 44);font-size:13px" (click)="onLogout()">TAMIL NADU</label>
+             </div>
+             <!-- <div >
+                <button class="form-control">Login</button>
+             </div>
+        -->
+       
+        <!-- <div class="profile-band col-lg-7 flex">
+            <div class="profile-band-block">
+                <div class="profile-img">
+                    <img src="assets/img/user.png" class="img-fluid" alt="Profile Image" />
+                </div>
+                <p> -->
+                    <!-- <span>{{instDistrict}}</span> -->
+                    <!-- <span>{{studentName}}</span>
+                    <span>{{className}} {{section}}</span>
+                </p>
+                
+            </div>
+            <div class="profile-band-block">
+                <div class="profile-img pro-sec">
+                    <img src="assets/img/school-campus.svg" alt="Profile Image" />
+                 
+                </div>
+                <p>
+                    <span>{{schoolName}}</span>
+                 
+                </p> -->
+              
+                <!-- <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleDropdown()"></button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [ngClass]="isShowDropdown ? 'showDropdown':'hideDropdown'">
+                        <div class="kt-notification ktuserType-scroll" data-scroll="true" data-height="210" data-mobile-height="200">
+                            <a href="#" class="kt-notification__item url-link">
+                                <div class="kt-notification__item-icon">
+                                    <i class="flaticon2-user"></i>
+                                </div>
+                                <div class="kt-notification__item-details">
+                                    <div class="kt-notification__item-title">
+                                        My Profile
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="kt-notification__item url-link">
+                                <div class="kt-notification__item-icon">
+                                    <i class="flaticon2-mail-1"></i>
+                                </div>
+                                <div class="kt-notification__item-details">
+                                    <div class="kt-notification__item-title">
+                                        My Inbox
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="kt-notification__item url-link">
+                                <div class="kt-notification__item-icon">
+                                    <i class="flaticon-clipboard"></i>
+                                </div>
+                                <div class="kt-notification__item-details">
+                                    <div class="kt-notification__item-title">
+                                        My Task
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="kt-notification__item url-link">
+                                <div class="kt-notification__item-icon">
+                                    <i class="flaticon-lock"></i>
+                                </div>
+                                <div class="kt-notification__item-details">
+                                    <div class="kt-notification__item-title">
+                                        Reset Password
+                                    </div>
+                                </div>
+                            </a>
+                            <a (click)="onLogout()" class="kt-notification__item url-link">
+                                <div class="kt-notification__item-icon">
+                                    <i class="flaticon-logout"></i>
+                                </div>
+                                <div class="kt-notification__item-details">
+                                    <div class="kt-notification__item-title">
+                                       <span>Logout</span> 
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+            <!-- </div>
+            <div class="profile-band-block url" (click)="showConfirmation()">
+                <div class="profile-img pro-sec">
+                    <i class="fa fa-sign-out" style="font-size:24px;padding-bottom: 8px;color: #333;" ></i>
+                 
+                </div>
+                <p>
+                    <span>Logout</span>
+                 
+                </p>
+              
+            </div>
+           
+        </div> -->
+    </div>
+    </div>
+    <!-- Page Section / Container -->
+    
+    
+    <div class="">
+        <!--Page title section-->
+        <!-- <div>
+            <button pButton type="button" label="Click" (click)="toggleSidebar()"></button>
+            <i class="pi pi-check" style="font-size: 3em"></i>
+            <span>abc</span>
+        </div> -->
+        <h3></h3>
+        <!--breadcrumb section-->
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+    </div>
+    <!-- <p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+        <p-footer>
+            <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+            <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+        </p-footer>
+    </p-confirmDialog> -->
+    
+    <div class="row bk-color">
+        <!-- <div class="col-lg-12 align">
+            <app-logout></app-logout>
+        </div> -->
+        <div class="col-lg-12 align">
+            <p-card>
+                <div class="text-right save-button">
+                    <button type="button" *ngIf="registerNo != 0" pButton class="logout-font" icon="pi pi-sign-out" label="Logout" (click)="showConfirmation()"></button>
+                    <!-- <button type="submit" icon="pi pi-sign-out" class="btn btn-success header-button-color" (click)="showConfirmation()">Logout</button> -->
+                </div>
+                <p-dialog [(visible)]="logoutdisplay"  [modal]="true" 
+    [responsive]="true" 
+    [style]="{width:'45%'}" 
+     >
+     
+        <p-header>
+        Confirmation
+        </p-header>
+        <span> Are you sure you want to Logout ?</span>
+     
+        <p-footer>
+            <button type="button" pButton icon="pi pi-times" label="No" (click)="cancel()"></button>
+            <button type="button" pButton icon="pi pi-check" label="Yes" (click)="onLogout()"></button> 
+        </p-footer>
+    </p-dialog>
+    
+            
+                <div class="col-lg-12 row">
+                    <div class="col-lg-6">
+                        <h5 class="reg-title">Student/Parent Registration</h5>
+                       
+                    </div>
+                    <div class="col-lg-6" *ngIf="isDisable">
+                        <h5 class="reg-title float-right">Application number: {{registerNo}}</h5>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-success header-button-color">1. Personal Details</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onParent()"
+                        [disabled]="registerNo ==0">2. Parent Details</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onAddress()"
+                        [disabled]="registerNo ==0">3. Address Details</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onDocument()"
+                        [disabled]="registerNo ==0">4. Documents</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onSchool()"
+                        [disabled]="registerNo ==0">5. Select Schools</button>
+                </div>
+                <!-- <div class="text-center mt-3" *ngIf="this.appvalue != 1">
+                        <button type="submit" class="btn btn-success header-button-color">1. Personal Details</button>   
+                        <button type="submit" class="btn btn-success header-button"  (click)="onParent()" >2. Parent Details</button>
+                        <button type="submit" class="btn btn-success header-button" (click)="onAddress()" >3. Address Details</button>
+                        <button type="submit" class="btn btn-success header-button" (click)="onDocument()" >4. Documents</button>
+                        <button type="submit" class="btn btn-success header-button" (click)="onSchool()" >5. Select Schools</button>   
+                      </div> -->
+                <fieldset [disabled]="isAllowedToEdit">
+                    <form [formGroup]="personalDetailsForm" class="form-align">
+    
+    
+                        <div class="row-header">
+    
+                            <div class="row row-head">
+                             
+                            </div>
+    
+                            <div class="row row-subhead">
+                                <div class="col-md-4">
+                                    <label class="text-bold">Name of the child<span class="tamil-text-color">[குழந்தையின் பெயர்]</span></label>
+                                    <input type="text" pInputText  class="form-control" formControlName="student_name"
+                                        [readonly]="isDisable">
+                                        <div *ngIf="personalDetailsForm.controls.student_name.errors && (submitted || personalDetailsForm.controls.student_name.dirty || personalDetailsForm.controls.student_name.touched)">
+                                            <p-message severity="error" text="Student Name  is required" *ngIf="personalDetailsForm.controls.student_name.errors?.required">
+                                            </p-message>
+                                            <p-message severity="error" text="Invalid Student Name" *ngIf="personalDetailsForm.controls.student_name.errors?.pattern">
+                                            </p-message>
+                                        </div>
+     
+                                </div>
+    
+    
+    
+                                <div class="col-md-4">
+                                    <label class="text-bold">Gender<span class="tamil-text-color">[பாலினம்]</span></label>
+                                    <p-dropdown [options]="personalGender" formControlName="gender"
+                                        placeholder="Select a gender" styleClass="select_dropdown"
+                                        [style]="{minWidth: '100%'}" [disabled]="isDisable">
+                                    </p-dropdown>
+                                    <p-message severity="error" text="Gender is required"
+                                        *ngIf="personalDetailsForm.controls.gender.errors && (submitted || personalDetailsForm.controls.gender.dirty || personalDetailsForm.controls.gender.touched)">
+                                    </p-message>
+                                </div>
+    
+                                <div class="col-md-4">
+                                    <label class="text-bold">Date Of Birth<span class="tamil-text-color">[பிறந்த
+                                            தேதி]</span></label>
+                                            <input type="date" id="start" *ngIf="!isDisable" class="form-control"  placeholder="date" formControlName="dob" name="trip-start" min="2014-01-01" max="2017-12-31" [style]="{minWidth: '100%'}" (change)="getData(personalDetailsForm.controls.dob.value)">
+                                    <!-- <p-calendar *ngIf="!isDisable" dateFormat="dd/mm/yy" formControlName="dob"
+                                        [monthNavigator]="true" [yearNavigator]="true" yearRange="2014:2017"
+                                        (onSelect)=elibledate($event) [style]="{minWidth: '100%'}"></p-calendar> -->
+                                    <input *ngIf="isDisable" type="text" pInputText class="form-control"
+                                        value="{{dobformatReadOnly}}" [readonly]="isDisable">
+                                    <p-message severity="error" text="Date Of Birth is required"
+                                        *ngIf="personalDetailsForm.controls.dob.errors && (submitted || personalDetailsForm.controls.dob.dirty || personalDetailsForm.controls.dob.touched)">
+                                    </p-message>
+                                </div>
+                            </div>
+                            <div class="row row-subhead" *ngIf="!isDisable">
+                                <div class="col-md-4">
+                                    <label class="text-bold">Password</label>
+                                   
+                                            <input type="password" pPassword  pInputText class="form-control" formControlName="password" minlength="8"/>
+                                    <!-- <input type="password" pInputText class="form-control" formControlName="password" minlength="8"> -->
+                                    <p-message severity="error" text="Password is required"
+                                        *ngIf="personalDetailsForm.controls.password.errors && (submitted || personalDetailsForm.controls.password.dirty || personalDetailsForm.controls.password.touched)">
+                                    </p-message>
+                                    <div>
+                                        <span
+                                        style="color:red;font-style: italic;padding-right:5px;padding-left:5px">Note:</span><span style="color:#467e71;font-style: italic">Minimum 8 characters
+                                            </span>
+                                    </div>
+                                    
+                                </div>
+    
+                                <div class="col-md-4">
+                                    <label class="text-bold">Confirm Password</label>
+                                    <input type="password" pInputText class="form-control"
+                                        formControlName="confirmpassword">
+    
+                                    <p-message severity="error" text="Confirm Password is required"
+                                        *ngIf="personalDetailsForm.controls.confirmpassword.errors && (submitted || personalDetailsForm.controls.confirmpassword.dirty || personalDetailsForm.controls.confirmpassword.touched)">
+                                    </p-message>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <br>
+    
+                        <div class="row-header">
+                            <div class="row row-subhead">
+                                <div class="col-md-4">
+                                    <label class="text-bold">Religion<span class="tamil-text-color">[மதம்]</span></label>
+                                    <p-dropdown [options]="religionlist" class="flex-dropdown" [disabled]="isAllowedToEdit" [style]="{minWidth: '100%'}"
+                                        formControlName="religion" placeholder="Select a religion"
+                                        (onChange)="getCommunity(personalDetailsForm.value.religion)"></p-dropdown>
+                                    <p-message severity="error" text="Religion is required"
+                                        *ngIf="personalDetailsForm.controls.religion.errors && (submitted || personalDetailsForm.controls.religion.dirty || personalDetailsForm.controls.religion.touched)">
+                                    </p-message>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="text-bold">Community<span class="tamil-text-color">[சமூகம்]</span></label>
+                                    <p-dropdown [options]="communitylist" class="flex-dropdown" [disabled]="isAllowedToEdit" [style]="{minWidth: '100%'}"
+                                        formControlName="community" placeholder="Select a community"></p-dropdown>
+                                    <p-message severity="error" text="Community is required"
+                                        *ngIf="personalDetailsForm.controls.community.errors && (submitted || personalDetailsForm.controls.community.dirty || personalDetailsForm.controls.community.touched)">
+                                    </p-message>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="text-bold">Mobile No<span class="tamil-text-color">[அலைபேசி
+                                            எண்]</span></label>
+                                    <input pKeyFilter="pnum" maxlength="10" minlength="10"pInputText class="form-control"
+                                        formControlName="mobile" [readonly]="isDisable">
+                                    <p-message severity="error" text="Mobile No is required"
+                                        *ngIf="personalDetailsForm.controls.mobile.errors && (submitted || personalDetailsForm.controls.mobile.dirty || personalDetailsForm.controls.mobile.touched)">
+                                    </p-message>
+                                    <p-message severity="error" text="Please put 10 digit mobile no"
+                                    *ngIf="personalDetailsForm.controls.mobile.errors?.minlength">
+                                </p-message>
+                                </div>
+                            </div>
+                        </div><br>
+    
+    
+                        <div class="row-header">
+                            <div class="row row-subhead">
+    
+                                <div class="col-md-5">
+                                    <label class="text-bold">Eligible Class as per DOB</label><br>
+                                    <label><span class="tamil-text-color">[பிறந்த தேதிப்படி விண்ணப்பிக்கக்கூடிய
+                                            வகுப்பு]</span></label>
+                                    <p-dropdown  [options]="personalClass" class="flex-dropdown"
+                                        [style]="{minWidth: '100%'}" readonly="true" formControlName="class">
+                                    </p-dropdown>
+                                   
+                                </div>
+    
+                                <div class="col-md-7">
+                                    <label class="text-bold">Email ID(If any) </label><br>
+                                    <label><span class="tamil-text-color">[மின்னஞ்சல்
+                                            ஐடி (ஏதேனும் இருந்தால்)]</span></label>
+                                    <input type="text" pInputText class="form-control" formControlName="email">
+                                    <!-- <p-message severity="error" text="Email is invalid"
+                                    *ngIf="personalDetailsForm.controls.email.errors?.pattern">
+                                </p-message> -->
+                                  
+                                </div>
+                            </div>
+    
+    
+    
+    
+                            <p-dialog header="Registered Successfully" [(visible)]="display"
+                                [style]="{width: '800px', minWidth: '200px'}">
+                                <div class="row" style="padding-top:5px">
+                                    <div class="col-md-12">
+                                        <h5 class="reg-title text-center text-highlight">Your Application number : <span
+                                                style="margin-left: 15px;">{{registerNo}}</span> </h5>
+                                        <p class="warn-msg text-center">Please note down your Application number and Password. You will
+                                            need this for all future communication</p>
+                                        <p class="warn-msg text-center">தங்கள் விண்ணப்ப எண்ணையும் கடவுச் சொல்லையும் பத்திரமாக குறித்து
+                                            வைத்துக் கொள்ளவும்</p>
+    
+                                    </div>
+    
+                                </div>
+    
+                                <div class="text-center save-button" style="margin-bottom: 15px;">
+                                    <button type="submit" class="btn btn-success flex-gap-right" (click)="onLogin()">Click
+                                        here to Login</button>
+                                </div>
+                            </p-dialog>
+    
+    
+    
+    
+    
+                            <p-toast [style]="{marginTop: '30px'}"></p-toast>
+    
+    
+    
+    
+    
+    
+                            <div style="padding-left: 15px;"><label><span
+                                        style="color:red;font-style: italic;padding-right:15px;">Note:</span></label></div>
+                            <div style="padding-left: 15px;"><label><span style="color:#467e71;font-style: italic">Date Of
+                                        Birth(31-05-2016 to 31-07-2017) - Eligible for LKG </span></label></div>
+                            <div style="padding-left: 15px;padding-bottom: 15px"><span
+                                    style="color:#467e71;font-style: italic">
+                                    Date Of Birth(31-05-2014 to 31-07-2015) - Eligible for 1st Standard </span></div>
+                        </div>
+                        <div class="text-right save-button">
+                            <!-- <button type="submit" class="btn btn-success" (click)="onSavePersonal()">Save</button> -->
+                        </div>
+    
+                    </form>
+                </fieldset>
+                <p-toast [style]="{marginTop: '30px'}"></p-toast>
+    
+            </p-card>
+        </div>
+    </div>
+    
+    
+    
+    

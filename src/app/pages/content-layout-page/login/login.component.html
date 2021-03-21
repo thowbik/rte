@@ -1,0 +1,243 @@
+
+  <!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page | TN</title>
+        <meta name="description" content="Updates and statistics">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+        <link rel="shortcut icon" href="favicon.ico" />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+        <link href="assets/vendors/global/vendors.bundle.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/demo1/style.bundle.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/demo1/pages/login/login-4.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/demo1/custom.css" rel="stylesheet" type="text/css" />
+
+      data tables
+        <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+      data tables
+    </head> -->
+    <div class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed bg-white">
+        <div class="login-container">
+            <div class="login-sub-container">
+                <div class="row m-0">
+                   
+                    <div class="col-md-12 col-lg-6" style="padding-top:1%;padding-left:2%">
+                        <h3 class="kt-login__title text-center">Right to Education Act</h3>
+                        <img src="assets/img/download2.jpg" height="100%" width="100%">
+                    </div>
+                    <div class="col-lg-2">
+
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-4 mobile-order-1 m-35">
+                        <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v4 kt-login--signin" id="kt_login">
+                            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+                                <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
+                                    <div class="kt-login__container">
+                                        <div class="kt-login__logo">
+                                            <a href="#">
+                                                <img src="assets/img/logo.svg" />
+                                            </a>
+                                        </div>
+                                        <div class="kt-login__signin">
+                                            <div class="kt-login__head">
+                                                <h3 class="kt-login__title text-center">கல்வி உரிமைச் சட்டம்</h3>
+                                                <h5 class="kt-login__title text-center">TAMIL NADU</h5>
+                                            </div>
+                                            <form name="loginForm" [formGroup]="loginForm">
+                                                <div class="form-group">
+                                                    <label>Application number</label>
+                                                    <input type="text" id="email" class="form-control" formControlName="regId" placeholder="Application number" required>
+                      <small class="form-text text-muted danger"
+                        *ngIf="!loginForm.get('regId').valid && (loginForm.get('regId').dirty || loginForm.get('regId').touched)">
+                        Application number is required</small>
+                                                </div>
+                                                <div class="form-group m-0">
+                                                    <label>Password</label>
+                                                    <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+                                                    <small class="form-text text-muted danger"
+                                                      *ngIf="!loginForm.get('password').valid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                                                      Password is required</small>
+                                                </div>
+                                                <div class="row kt-login__extra mx-0 mt-1 p-0">
+                                                    <div class="col kt-align-right p-0">
+                                                        <!-- <a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Forgot Password ?</a> -->
+                                                    </div>
+                                                </div>
+                                                <div class="kt-login__actions d-block">
+                                                    <div class="btn-group footer-btn-group d-block">
+                                                        <!-- <button type="submit" class="btn btn-outline-primary recover-pass" (click)="onLogin()">
+                                                            Login
+                                                          </button> -->
+                                                        <!-- <a href="Subject-wise-CCE-Records02.html" class="btn btn-primary blu-btn kt-login__btn-primary d-block">Sign In</a> -->
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="kt-login__account">
+                                            <span class="kt-login__account-msg">
+                                                Support :
+                                            </span>
+                                            <a href="mailto:rtetnqueries@gmail.com" id="kt_login_signup" class="kt-login__account-link">rtetnqueries@gmail.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row m-0 my-3">
+                <div class="col-sm-12 px-4">
+                    <div id="owl-news" class="owl-carousel row m-0">
+                        <div>
+                            <div class="kt-portlet">
+                                <div class="kt-portlet__head">
+                                    <div class="kt-portlet__head-label">
+                                        <span class="kt-portlet__head-icon">
+                                                <svg id="icn_news" xmlns="http://www.w3.org/2000/svg" width="16.574" height="16.574" viewBox="0 0 16.574 16.574">
+                                                    <path id="Path_414" data-name="Path 414" d="M15.982,4.144h-2.96V.592A.592.592,0,0,0,12.431,0H.592A.592.592,0,0,0,0,.592V14.206a2.368,2.368,0,0,0,2.368,2.368H14.206a2.368,2.368,0,0,0,2.368-2.368V4.735A.592.592,0,0,0,15.982,4.144ZM4.735,2.96H8.287a.592.592,0,1,1,0,1.184H4.735a.592.592,0,1,1,0-1.184Zm5.327,11.247H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm0-2.368H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm0-2.368H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm0-2.368H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm5.327,7.1a1.184,1.184,0,1,1-2.368,0V5.327H15.39v8.879Z" fill="#375aa8"/>
+                                                  </svg>
+
+                                        </span>
+                                        <h3 class="kt-portlet__head-title">
+                                            Flash News
+                                        </h3>
+                                    </div>
+                                    <div class="kt-portlet__head-toolbar">
+                                        <div class="dropdown dropdown-inline">
+                                            <p class="news-date">24/05/19</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-portlet__body">
+                                    பள்ளியில் பணிபுரியும் ஆசிரியர்கள் மற்றும் அலுவலக
+                                    பணியாளர்கள்  சுயவிவர ( Teaching & Non Teaching
+                                    Staff Details) படிவம்
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="kt-portlet">
+                                <div class="kt-portlet__head">
+                                    <div class="kt-portlet__head-label">
+                                        <span class="kt-portlet__head-icon">
+                                                <svg id="icn_news" xmlns="http://www.w3.org/2000/svg" width="16.574" height="16.574" viewBox="0 0 16.574 16.574">
+                                                    <path id="Path_414" data-name="Path 414" d="M15.982,4.144h-2.96V.592A.592.592,0,0,0,12.431,0H.592A.592.592,0,0,0,0,.592V14.206a2.368,2.368,0,0,0,2.368,2.368H14.206a2.368,2.368,0,0,0,2.368-2.368V4.735A.592.592,0,0,0,15.982,4.144ZM4.735,2.96H8.287a.592.592,0,1,1,0,1.184H4.735a.592.592,0,1,1,0-1.184Zm5.327,11.247H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm0-2.368H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm0-2.368H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm0-2.368H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm5.327,7.1a1.184,1.184,0,1,1-2.368,0V5.327H15.39v8.879Z" fill="#375aa8"/>
+                                                  </svg>
+
+                                        </span>
+                                        <h3 class="kt-portlet__head-title">
+                                            Flash News
+                                        </h3>
+                                    </div>
+                                    <div class="kt-portlet__head-toolbar">
+                                        <div class="dropdown dropdown-inline">
+                                            <p class="news-date">24/05/19</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-portlet__body">
+                                    பள்ளியில் பணிபுரியும் ஆசிரியர்கள் மற்றும் அலுவலக
+                                    பணியாளர்கள்  சுயவிவர ( Teaching & Non Teaching
+                                    Staff Details) படிவம்
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="kt-portlet what-new">
+                                <div class="kt-portlet__head">
+                                    <div class="kt-portlet__head-label">
+                                        <span class="kt-portlet__head-icon">
+                                                <svg id="icn_whatsnew" xmlns="http://www.w3.org/2000/svg" width="20.761" height="19.816" viewBox="0 0 20.761 19.816">
+                                                    <path id="Path_415" data-name="Path 415" d="M20.492,19.4l-2.541-1.92.927-3.048a.676.676,0,0,0-.635-.873L15.058,13.5l-1.039-3.013a.676.676,0,0,0-1.027-.334L10.38,11.982,7.769,10.154a.676.676,0,0,0-1.027.334L5.7,13.5l-3.186.058a.676.676,0,0,0-.635.873L2.81,17.48.269,19.4a.676.676,0,0,0,0,1.079L2.81,22.4l-.927,3.048a.676.676,0,0,0,.635.873L5.7,26.38l1.039,3.013a.676.676,0,0,0,1.027.334L10.38,27.9l2.612,1.827a.676.676,0,0,0,1.027-.334l1.039-3.013,3.186-.058a.676.676,0,0,0,.635-.873L17.951,22.4l2.541-1.921a.676.676,0,0,0,0-1.079ZM7.17,21.479a.265.265,0,0,1-.265.265H6.616a.265.265,0,0,1-.265-.265V19.532a.634.634,0,0,0-.205-.506.85.85,0,0,0-.579-.185.85.85,0,0,0-.579.185.634.634,0,0,0-.205.506v1.947a.265.265,0,0,1-.265.265H4.229a.265.265,0,0,1-.265-.265V19.532a1.383,1.383,0,0,1,.472-1.049,1.615,1.615,0,0,1,1.131-.432,1.615,1.615,0,0,1,1.131.432,1.383,1.383,0,0,1,.472,1.049v1.947ZM11.2,20.5A1.894,1.894,0,0,1,9.415,21.8a1.873,1.873,0,0,1,0-3.747,1.732,1.732,0,0,1,1.182.393,2.176,2.176,0,0,1,.442.5.265.265,0,0,1-.1.367l-2.353,1.26a1.166,1.166,0,0,0,.089.1,1.053,1.053,0,0,0,1.489,0,1.016,1.016,0,0,0,.242-.374.265.265,0,0,1,.287-.172l.3.043a.265.265,0,0,1,.215.341Zm5.6-.188a1.474,1.474,0,0,1-.439,1.069,1.443,1.443,0,0,1-1.061.445,1.466,1.466,0,0,1-1.087-.475,1.466,1.466,0,0,1-1.087.475,1.443,1.443,0,0,1-1.061-.446,1.474,1.474,0,0,1-.439-1.069v-1.98a.265.265,0,0,1,.265-.265h.3a.265.265,0,0,1,.265.265v1.98a.638.638,0,0,0,.177.485.794.794,0,0,0,.989,0,.642.642,0,0,0,.176-.486v-1.98a.265.265,0,0,1,.265-.265h.305a.265.265,0,0,1,.265.265v1.98a.642.642,0,0,0,.176.486.794.794,0,0,0,.989,0,.639.639,0,0,0,.177-.486v-1.98a.265.265,0,0,1,.265-.265h.3a.265.265,0,0,1,.265.265v1.98Z" transform="translate(0 -10.032)" fill="#a83770"/>
+                                                    <path id="Path_416" data-name="Path 416" d="M178.73,197.812a1.054,1.054,0,0,0-1.05.99l1.586-.846A1.024,1.024,0,0,0,178.73,197.812Z" transform="translate(-169.315 -188.972)" fill="#a83770"/>
+                                                  </svg>
+                                        </span>
+                                        <h3 class="kt-portlet__head-title">
+                                             What’s New
+                                        </h3>
+                                    </div>
+                                    <div class="kt-portlet__head-toolbar">
+                                        <div class="dropdown dropdown-inline">
+                                            <p class="news-date">24/05/19</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-portlet__body">
+                                    EMIS இணையதளத்தில் அரசு, அரசு உதவிபெறும்
+                                    மற்றும் தனியார் பள்ளிகள் என அனைத்து விதமான
+                                    பள்ளிகளும் உடனடியாக உள்ளீடு செய்து சமர்ப்பிக்க
+                                    வேண்டும்.
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="kt-portlet">
+                                <div class="kt-portlet__head">
+                                    <div class="kt-portlet__head-label">
+                                        <span class="kt-portlet__head-icon">
+                                                <svg id="icn_news" xmlns="http://www.w3.org/2000/svg" width="16.574" height="16.574" viewBox="0 0 16.574 16.574">
+                                                    <path id="Path_414" data-name="Path 414" d="M15.982,4.144h-2.96V.592A.592.592,0,0,0,12.431,0H.592A.592.592,0,0,0,0,.592V14.206a2.368,2.368,0,0,0,2.368,2.368H14.206a2.368,2.368,0,0,0,2.368-2.368V4.735A.592.592,0,0,0,15.982,4.144ZM4.735,2.96H8.287a.592.592,0,1,1,0,1.184H4.735a.592.592,0,1,1,0-1.184Zm5.327,11.247H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm0-2.368H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm0-2.368H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm0-2.368H2.96a.592.592,0,1,1,0-1.184h7.1a.592.592,0,1,1,0,1.184Zm5.327,7.1a1.184,1.184,0,1,1-2.368,0V5.327H15.39v8.879Z" fill="#375aa8"/>
+                                                  </svg>
+
+                                        </span>
+                                        <h3 class="kt-portlet__head-title">
+                                            Flash News
+                                        </h3>
+                                    </div>
+                                    <div class="kt-portlet__head-toolbar">
+                                        <div class="dropdown dropdown-inline">
+                                            <p class="news-date">24/05/19</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-portlet__body">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="kt-portlet">
+                                <div class="kt-portlet__head">
+                                    <div class="kt-portlet__head-label">
+                                        <span class="kt-portlet__head-icon">
+                                            <i class="flaticon2-graph-1"></i>
+                                        </span>
+                                        <h3 class="kt-portlet__head-title">
+                                            Flash News
+                                        </h3>
+                                    </div>
+                                    <div class="kt-portlet__head-toolbar">
+                                        <div class="dropdown dropdown-inline">
+                                            <p class="news-date">24/05/19</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-portlet__body">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    	    	<!--begin:: Global Mandatory Vendors -->
+        <!--begin:: Global Mandatory Vendors -->
+        <!-- <script src="./assets/vendors/general/jquery/dist/jquery.js" type="text/javascript"></script>
+        <script src="./assets/vendors/general/popper.js/dist/umd/popper.js" type="text/javascript"></script>
+
+
+        <script src="assets/js/demo1/scripts.bundle.js" type="text/javascript"></script>
+
+
+        <script src="./assets/vendors/general/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="./assets/vendors/general/owl.carousel/dist/owl.carousel.js" type="text/javascript"></script>
+        <script src="./assets/js/custom-owl.js" type="text/javascript"></script> -->
+        </div>
+<!-- </html> -->

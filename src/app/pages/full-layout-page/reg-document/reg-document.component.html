@@ -1,0 +1,258 @@
+<div class="row bk-color">
+    <div class="col-lg-12 has-chart align">
+        <p-card>
+                <div class="text-right save-button">
+                    <button type="button" pButton icon="pi pi-sign-out" class="logout-font" label="Logout" (click)="showConfirmation()"></button>
+
+                    <!-- <button type="submit" class="btn btn-success header-button-color" (click)="showConfirmation()">Logout</button> -->
+                </div>
+                <p-dialog [(visible)]="logoutdisplay"  [modal]="true" 
+    [responsive]="true" 
+    [style]="{width:'45%'}" 
+     >
+    <p-header>
+    Confirmation
+    </p-header>
+    <span> Are you sure you want to Logout ?</span>
+ 
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cancel()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="onLogout()"></button> 
+    </p-footer>
+</p-dialog>
+
+            <div class="col-lg-12 row">
+                <div class="col-lg-6">
+                <h5 class="reg-title">Student/Parent Registration</h5>
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="reg-title float-right">Application number: {{registerNo}}</h5>
+                </div>
+            </div>
+                  <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-success header-button" (click)="onPersonal()" >1. Personal Details</button>   
+                    <button type="submit" class="btn btn-success header-button" (click)="onParent()" >2. Parent Details</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onAddress()" >3. Address Details</button>
+                    <button type="submit" class="btn btn-success header-button-color">4. Documents</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onSchool()" >5. Select Schools</button>   
+                  </div>
+                  <fieldset [disabled]="isAllowedToEdit">
+                  <form [formGroup]="documentDetailsForm" class="form-align">
+
+                    <div class="row-header">
+                        <div class="row row-head">
+                            <div class="col-md-12">
+                                <label class="text-bold"><span>
+                                    Please upload copies of the following applicable documents. You
+                                    will have to present hard copies to the school at the time of admission.
+                                </span><br><span
+                                        style="color:#2d7464">பின்வரும் பொருந்தக்கூடிய ஆவணங்களின் நகல்களை பதிவேற்றவும்.
+                                        சேர்க்கை நேரத்தில் நீங்கள் அச்சு நகல் (Hard copy) பள்ளிக்கு வழங்க வேண்டும்.</span></label>
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <div class="row-header">
+                        <div class="row row-head">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <label  class="center-text">Student Photo<span style="color:#2d7464">[மாணவர்
+                                        புகைப்படம்]</span></label>
+                                        <label class="hoverable center" for="fileInput" style="padding-top:10px;" ><br>
+                                            <img [src]="profileurl" width="150px" height="175px" alt="" accept="image/*" class="center" >
+                                            <div class="hover-text"></div>
+                                            <div class="background"></div>
+                                        </label>
+                                        <input id="fileInput" #Image type='file' class="center" (change)="onSelectStudentPic($event)" >
+                                        <input type="hidden" name="fileHidden" formControlName="studentimage"/><br><br> 
+                                        <span style="color:red;font-style: italic;padding-right:5px;padding-left:5px">Note:</span>
+                                        <span style="color:#467e71;font-style: italic">1. Width-150px, Heigth-175px</span><br>
+                                        <span style="color:#467e71;font-style: italic;margin-left: 40px">2. Image size should not exceed 100 KB</span>
+            
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <label class="center-text">Proof Of Birth<span style="color:#2d7464">[பிறப்பு
+                                        சான்று]</span></label>
+                                        <label class="hoverable center" for="fileInput" style="padding-top:10px"><br>
+                                            <img [src]="profileurl1" width="200" height="200" alt="" accept="image/*" class="center" >
+                                            <div class="hover-text"></div>
+                                            <div class="background"></div>
+                                        </label>
+                                        <input  id="fileInput" #Image1 type='file' class="center" (change)="onSelectBirthProof($event)">
+                                        <input type="hidden" name="fileHidden" formControlName="birthproof"/><br><br>
+                                        <span style="color:red;font-style: italic;padding-right:5px;padding-left:5px">Note:</span><span style="color:#467e71;font-style: italic">Only JPG / JPEG files with maximum size 1MB</span>
+                                   
+                            </div>
+
+                        </div>
+                        <!-- <div class="row" style="padding-bottom: 15px;
+                        padding-left: 15px;padding-right: 15px;">
+                            <div class="col-md-6">
+                                <label class="hoverable center" for="fileInput" style="padding-top:10px;" >
+                                    <img [src]="profileurl" width="200" height="200" alt="StudentPic" accept="image/*" class="center" style="background-image: url(assets/img/placeholder.jpg);">
+                                    <div class="hover-text"></div>
+                                    <div class="background"></div>
+                                </label><br>
+                                <input id="fileInput" #Image type='file' class="center" formControlName="studentimage" (change)="onSelectStudentPic($event,'photo')">
+                                <i class="center-image">Image size should not exceed 1 MB</i>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <label class="hoverable center" for="fileInput" style="padding-top:10px">
+                                    <img [src]="profileurl1" width="200" height="200" alt="BirthProof" accept="image/*" class="center" >
+                                    <div class="hover-text"></div>
+                                    <div class="background"></div>
+                                </label><br>
+                                <input  id="fileInput" #Image1 type='file' class="center" formControlName="birthproof" (change)="onSelectBirthProof($event,'proof_of_birth')">
+                                <i class="center-image">Image size should not exceed 1 MB</i>
+                               
+                            </div>
+
+                        </div> -->
+                    </div><br>
+
+                    <div class="row-header">
+                        <div class="row row-head">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <label class="center-text">Parent ID<span style="color:#2d7464">[பெற்றோர் அடையாள
+                                        அட்டை]</span></label>
+                                        <label class="hoverable center" for="fileInput" style="padding-top:10px"><br>
+                                            <img [src]="profileurl2" width="200" height="200" alt="" accept="image/*" class="center">
+                                            <div class="hover-text"></div>
+                                            <div class="background"></div>
+                                        </label>
+                                        <input id="fileInput" type='file' class="center" (change)="onSelectParentId($event)">
+                                        <input type="hidden" name="fileHidden" formControlName="parentid"/><br><br>
+                                        <span style="color:red;font-style: italic;padding-right:5px;padding-left:5px">Note:</span><span style="color:#467e71;font-style: italic">Only  JPG / JPEG files with maximum size 1MB</span>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <label class="center-text">Address Proof<span style="color:#2d7464">[முகவரி
+                                        சான்று]</span></label>
+                                        <label class="hoverable center" for="fileInput" style="padding-top:10px"><br>
+                                            <img [src]="profileurl3" width="200" height="200" alt="" accept="image/*" class="center">
+                                            <div class="hover-text"></div>
+                                            <div class="background"></div>
+                                        </label>
+                                        <input id="fileInput" type='file' class="center"  (change)="onSelectAddressProof($event)">
+                                        <input type="hidden" name="fileHidden" formControlName="addressproof"/><br><br>
+                                        <span style="color:red;font-style: italic;padding-right:5px;padding-left:5px">Note:</span><span style="color:#467e71;font-style: italic">Only  JPG / JPEG files with maximum size 1MB</span>
+                            </div>
+
+                        </div>
+                        <!-- <div class="row" style="padding-bottom: 15px;
+                        padding-left: 15px;padding-right: 15px;">
+                            <div class="col-md-6">
+                                <label class="hoverable center" for="fileInput" style="padding-top:10px">
+                                    <img [src]="profileurl2" width="200" height="200" alt="ParentId" accept="image/*" class="center">
+                                    <div class="hover-text"></div>
+                                    <div class="background"></div>
+                                </label><br>
+                                <input id="fileInput" type='file' class="center" formControlName="parentid" (change)="onSelectParentId($event,'parent_id')">
+                                <i class="center-image">Image size should not exceed 1 MB</i>
+                                
+
+                            </div>
+                            <div class="col-md-6">
+                                <label class="hoverable center" for="fileInput" style="padding-top:10px">
+                                    <img [src]="profileurl3" width="200" height="200" alt="AddressProof" accept="image/*" class="center">
+                                    <div class="hover-text"></div>
+                                    <div class="background"></div>
+                                </label><br>
+                                <input id="fileInput" type='file' class="center" formControlName="addressproof" (change)="onSelectAddressProof($event,'address_proof')">
+                                <i class="center-image">Image size should not exceed 1 MB</i>
+                               
+                            </div>
+                        </div> -->
+                    </div><br>
+                    <div class="row-header" *ngIf="catvalue == 1 || catvalue == 2 || catvalue == 3">
+                        <div class="row row-head" >
+                            <div class="col-md-1" *ngIf="catvalue == 2"></div>
+                            <div class="col-md-5" *ngIf="catvalue == 2">
+                                <label class="center-text">Community Certificate<span style="color:#2d7464">[சாதி
+                                        சான்றிதழ்]</span></label>
+                                        <label class="hoverable center" for="fileInput" style="padding-top:10px"><br>
+                                            <img [src]="profileurl4" width="200" height="200" alt="" accept="image/*" class="center">
+                                            <div class="hover-text"></div>
+                                            <div class="background"></div>
+                                        </label>
+                                        <input id="fileInput" type='file' class="center" (change)="onSelectOtherProof($event)">
+                                        <input type="hidden" name="fileHidden" formControlName="otherdoc"/><br><br>
+                                        <span style="color:red;font-style: italic;padding-right:5px;padding-left:5px">Note:</span><span style="color:#467e71;font-style: italic">Only  JPG / JPEG files with maximum size 1MB</span>
+                            </div>
+                            <div class="col-md-1" *ngIf="catvalue == 1"></div>
+                            <div class="col-md-5"  *ngIf="catvalue == 1">
+                                <label class="center-text">Income Certificate<span style="color:#2d7464">[வருமான
+                                        சான்றிதழ்]</span></label>
+                                        <label class="hoverable center" for="fileInput" style="padding-top:10px"><br>
+                                            <img [src]="profileurl4" width="200" height="200" alt="" accept="image/*" class="center">
+                                            <div class="hover-text"></div>
+                                            <div class="background"></div>
+                                        </label>
+                                        <input id="fileInput" type='file' class="center" (change)="onSelectOtherProof($event)" >
+                                        <input type="hidden" name="fileHidden" formControlName="otherdoc"/><br><br>
+                                        <span style="color:red;font-style: italic;padding-right:5px;padding-left:5px">Note:</span><span style="color:#467e71;font-style: italic">Only  JPG / JPEG files with maximum size 1MB</span>
+                            </div>
+                            <div class="col-md-1" *ngIf="catvalue == 3"></div>
+                            <div class="col-md-5"  *ngIf="catvalue == 3">
+                                <label class="center-text">Other Certificate<span style="color:#2d7464">
+                                       </span></label>
+                                       <label class="hoverable center" for="fileInput" style="padding-top:10px"><br>
+                                        <img [src]="profileurl4" width="200" height="200" alt="" accept="image/*" class="center">
+                                        <div class="hover-text"></div>
+                                        <div class="background"></div>
+                                    </label>
+                                    <input id="fileInput" type='file' class="center" (change)="onSelectOtherProof($event)">
+                                    <input type="hidden" name="fileHidden" formControlName="otherdoc"/><br><br>
+                                    <span style="color:red;font-style: italic;padding-right:5px;padding-left:5px">Note:</span><span style="color:#467e71;font-style: italic">Only  JPG / JPEG files with maximum size 1MB</span>
+                            </div>
+
+                        </div>
+                        <!-- <div class="row" style="padding-bottom: 15px;
+                        padding-left: 15px;padding-right: 15px;" *ngIf="catvalue == 1 || catvalue == 2 || catvalue == 3">
+                            <div class="col-md-6" *ngIf="catvalue == 2">
+                                <label class="hoverable center" for="fileInput" style="padding-top:10px">
+                                    <img [src]="profileurl4" width="200" height="200" alt="CommunityProof" accept="image/*" class="center">
+                                    <div class="hover-text"></div>
+                                    <div class="background"></div>
+                                </label><br>
+                                <input id="fileInput" type='file' class="center" formControlName="otherdoc"  (change)="onSelectOtherProof($event,'other')">
+                                <i class="center-image">Image size should not exceed 1 MB</i>
+                               
+                            </div>
+                            <div class="col-md-6" *ngIf="catvalue == 1">
+                                <label class="hoverable center" for="fileInput" style="padding-top:10px">
+                                    <img [src]="profileurl4" width="200" height="200" alt="IncomeProof" accept="image/*" class="center">
+                                    <div class="hover-text"></div>
+                                    <div class="background"></div>
+                                </label><br>
+                                <input id="fileInput" type='file' class="center" formControlName="otherdoc" (change)="onSelectOtherProof($event,'other')" >
+                                <i class="center-image">Image size should not exceed 1 MB</i>
+                             
+                            </div>
+                            <div class="col-md-6" *ngIf="catvalue == 3">
+                                <label class="hoverable center" for="fileInput" style="padding-top:10px">
+                                    <img [src]="profileurl4" width="200" height="200" alt="CommunityProof" accept="image/*" class="center">
+                                    <div class="hover-text"></div>
+                                    <div class="background"></div>
+                                </label><br>
+                                <input id="fileInput" type='file' class="center" formControlName="otherdoc" (change)="onSelectOtherProof($event,'other')">
+                                <i class="center-image">Image size should not exceed 1 MB</i>
+                              
+
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="text-right save-button">
+                        <!-- <button type="submit" class="btn btn-success" (click)="onSaveDocument()">Save</button> -->
+                    </div>
+                  </form>
+                  </fieldset>
+                  <p-toast [style]="{marginTop: '30px'}"></p-toast>
+
+        </p-card>
+    </div>
+</div>
+

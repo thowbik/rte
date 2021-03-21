@@ -1,0 +1,281 @@
+<div class="row bk-color">
+    <div class="col-lg-12 has-chart align">
+        <p-card>
+
+            <div class="text-right save-button">
+                <button type="button" pButton icon="pi pi-sign-out" class="logout-font" label="Logout" (click)="showConfirmation()"></button>
+                <!-- <button type="submit" class="btn btn-success header-button-color" (click)="showConfirmation()">Logout</button> -->
+            </div>
+            <p-dialog [(visible)]="logoutdisplay"  [modal]="true" 
+[responsive]="true" 
+[style]="{width:'45%'}" 
+ >
+    <p-header>
+    Confirmation
+    </p-header>
+    <span> Are you sure you want to Logout ?</span>
+ 
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cancel()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="onLogout()"></button> 
+    </p-footer>
+</p-dialog>
+
+            <div class="col-lg-12 row">
+                <div class="col-lg-6">
+                <h5 class="reg-title">Student/Parent Registration</h5>
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="reg-title float-right">Application number: {{registerNo}}</h5>
+                </div>
+            </div>
+           
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-success header-button"  (click)="onPersonal()">1. Personal Details</button>   
+                    <button type="submit" class="btn btn-success header-button-color">2. Parent Details</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onAddress()">3. Address Details</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onDocument()">4. Documents</button>
+                    <button type="submit" class="btn btn-success header-button" (click)="onSchool()">5. Select Schools</button>   
+                  </div>
+                  <fieldset [disabled]="isAllowedToEdit">
+                  <form [formGroup]="parentDetailsForm" class="form-align">
+
+                    <div class="row-header" >
+
+                        <div class="row row-head">
+                            <div class="col-md-12">
+                                <label class="text-bold">Details of Father/Mother/Guardian(It is mandatory of fill the details of aleast one)</label>
+                            </div>
+                        </div>
+
+                        <div class="row row-subhead">
+                            <div class="col-md-2">
+                                <p-radioButton name="guardian" class="text-bold" value="1" label="Father" [disabled]="isAllowedToEdit" formControlName="parent_type"></p-radioButton>
+                                <span class="tamil-text-color">[தந்தை]</span>
+                                <p-message severity="error" text="Field is required"
+                                    *ngIf="parentDetailsForm.controls.parent_type.errors && (submitted || parentDetailsForm.controls.parent_type.dirty || parentDetailsForm.controls.parent_type.touched)">
+                                </p-message>
+                            </div>
+
+                            <div class="col-md-2">
+                                <p-radioButton name="guardian" class="text-bold" value="2" label="Mother" [disabled]="isAllowedToEdit" formControlName="parent_type"></p-radioButton>
+                                <span class="tamil-text-color">[தாய்]</span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <p-radioButton name="guardian" class="text-bold" value="3" label="Guardian" [disabled]="isAllowedToEdit" formControlName="parent_type"></p-radioButton>
+                                <span class="tamil-text-color">[பாதுகாவலர்]</span>
+                            </div>
+                        </div>
+
+                    </div><br>
+
+
+                    <div class="row-header" *ngIf="parentDetailsForm.value.parent_type== '3'">
+                        <div class="row row-subhead">
+                            <div class="col-md-12">
+                                <label class="text-bold">Guardian Details <span class="tamil-text-color">[பாதுகாவலர் விவரங்கள்]</span></label>
+                            </div>
+                        </div>
+
+                        <div  class="row row-subhead">
+                            <div class="col-md-4">
+                                <label class="text-bold">Guardian Name </label><br>
+                                <span class="tamil-text-color">[பாதுகாவலர் பெயர்]</span><br><label></label>
+                                <input type="text" pInputText class="form-control" formControlName="parent_name">
+                                <div *ngIf="parentDetailsForm.controls.parent_name.errors && (submitted || parentDetailsForm.controls.parent_name.dirty || parentDetailsForm.controls.parent_name.touched)">
+                                    <p-message severity="error" text="Guardian Name is required" *ngIf="parentDetailsForm.controls.parent_name.errors?.required">
+                                    </p-message>
+                                    <p-message severity="error" text="Invalid Guardian Name" *ngIf="parentDetailsForm.controls.parent_name.errors?.pattern">
+                                    </p-message>
+                                </div>
+                              
+                            </div>
+                            <div class="col-md-4">
+                                <label class="text-bold">Guardian Profession</label><br>
+                                <span class="tamil-text-color">[பாதுகாவலர் தொழில்]</span><br><label></label>
+                                <p-dropdown [options]="parentProfession" [disabled]="isAllowedToEdit" placeholder="Please Select" class="flex-dropdown"
+                                [style]="{minWidth: '100%'}" formControlName="parent_profession"></p-dropdown>
+                            <p-message severity="error" text="Guardian's Profession is required"
+                                *ngIf="parentDetailsForm.controls.parent_profession.errors && (submitted || parentDetailsForm.controls.parent_profession.dirty || parentDetailsForm.controls.parent_profession.touched)">
+                            </p-message>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="text-bold">Total Annual Income of Parents / Guardian from all
+                                    sources<span class="tamil-text-color">[குடும்பத்தின் மொத்த ஆண்டு
+                                        வருமானம்]</span></label>
+                                        <input type="text" pKeyFilter="pnum" maxlength="7" pInputText class="form-control" formControlName="parent_income">
+                                <p-message severity="error" text="Total Annual Income of Guardian is required"
+                                    *ngIf="parentDetailsForm.controls.parent_income.errors && (submitted || parentDetailsForm.controls.parent_income.dirty || parentDetailsForm.controls.parent_income.touched)">
+                                </p-message>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-header" *ngIf="parentDetailsForm.value.parent_type== '2'">
+                        <div  class="row row-subhead">
+                            <div class="col-md-12">
+                                <label class="text-bold">Mother's Details <span class="tamil-text-color">[தாயின்
+                                        விவரங்கள்]</span></label>
+                            </div>
+                        </div >
+
+                        <div  class="row row-subhead">
+                            <div class="col-md-4">
+                                <label class="text-bold">Mother's Name </label><br>
+                                <span class="tamil-text-color">[தாயின்
+                                    பெயர்]</span> <br><label></label>
+                                    <input type="text" pInputText class="form-control" formControlName="parent_name">
+                                    <div *ngIf="parentDetailsForm.controls.parent_name.errors && (submitted || parentDetailsForm.controls.parent_name.dirty || parentDetailsForm.controls.parent_name.touched)">
+                                        <p-message severity="error" text="Mother Name is required" *ngIf="parentDetailsForm.controls.parent_name.errors?.required">
+                                        </p-message>
+                                        <p-message severity="error" text="Invalid Mother Name" *ngIf="parentDetailsForm.controls.parent_name.errors?.pattern">
+                                        </p-message>
+                                    </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <label class="text-bold">Mother's Profession</label><br>
+                                <span class="tamil-text-color">[தாயின்
+                                    தொழில்]</span><br><label></label>
+                                    <p-dropdown [options]="parentProfession" placeholder="Please Select" [disabled]="isAllowedToEdit" class="flex-dropdown"
+                                [style]="{minWidth: '100%'}" formControlName="parent_profession"></p-dropdown>
+                            <p-message severity="error" text="Mother's Profession  is required"
+                                *ngIf="parentDetailsForm.controls.parent_profession.errors && (submitted || parentDetailsForm.controls.parent_profession.dirty || parentDetailsForm.controls.parent_profession.touched)">
+                            </p-message>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="text-bold">Total Annual Income of Parents / Guardian from all
+                                    sources<span class="tamil-text-color">[குடும்பத்தின் மொத்த ஆண்டு
+                                        வருமானம்]</span></label>
+                                        <input type="text" pKeyFilter="pnum" maxlength="7" pInputText class="form-control" formControlName="parent_income">
+                                        <p-message severity="error" text="Total Annual Income of Mother is required"
+                                            *ngIf="parentDetailsForm.controls.parent_income.errors && (submitted || parentDetailsForm.controls.parent_income.dirty || parentDetailsForm.controls.parent_income.touched)">
+                                        </p-message> 
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row-header"
+                        *ngIf="parentDetailsForm.value.parent_type == '1'">
+                        <div  class="row row-subhead">
+                            <div class="col-md-12">
+                                <label class="text-bold">Father's Details <span class="tamil-text-color">[தந்தையின்
+                                        விவரங்கள்]</span></label>
+                            </div>
+                        </div>
+
+                        <div  class="row row-subhead">
+                            <div class="col-md-4">
+                                <label class="text-bold">Father's Name </label><br>
+                                <span class="tamil-text-color">[தந்தையின்
+                                    பெயர்]</span><br><label></label>
+                                    <input type="text" pInputText class="form-control" formControlName="parent_name">
+                                    <div *ngIf="parentDetailsForm.controls.parent_name.errors && (submitted || parentDetailsForm.controls.parent_name.dirty || parentDetailsForm.controls.parent_name.touched)">
+                                        <p-message severity="error" text="Father's Name is required" *ngIf="parentDetailsForm.controls.parent_name.errors?.required">
+                                        </p-message>
+                                        <p-message severity="error" text="Invalid Father's Name" *ngIf="parentDetailsForm.controls.parent_name.errors?.pattern">
+                                        </p-message>
+                                    </div>
+                                    
+                            </div>
+                            <div class="col-md-4">
+                                <label class="text-bold">Father's Profession</label><br>
+                                <span class="tamil-text-color">[தந்தையின்
+                                    தொழில்]</span><br><label></label>
+                                    <p-dropdown [options]="parentProfession" [disabled]="isAllowedToEdit" placeholder="Please Select" class="flex-dropdown"
+                                    [style]="{minWidth: '100%'}" formControlName="parent_profession"></p-dropdown>
+                                <p-message severity="error" text="Father's Profession is required"
+                                    *ngIf="parentDetailsForm.controls.parent_profession.errors && (submitted || parentDetailsForm.controls.parent_profession.dirty || parentDetailsForm.controls.parent_profession.touched)">
+                                </p-message> 
+                            </div>
+                            <div class="col-md-4">
+                                <label class="text-bold">Total Annual Income of Parents / Guardian from all
+                                    sources<span class="tamil-text-color">[குடும்பத்தின் மொத்த ஆண்டு
+                                        வருமானம்]</span></label>
+                                        <input type="text" pKeyFilter="pnum" maxlength="7" pInputText class="form-control" formControlName="parent_income">
+                                        <p-message severity="error" text="Father Income is required"
+                                            *ngIf="parentDetailsForm.controls.parent_income.errors && (submitted || parentDetailsForm.controls.parent_income.dirty || parentDetailsForm.controls.parent_income.touched)">
+                                        </p-message>  
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <div class="row-header">
+                        <div class="row row-subhead">
+                            <div class="col-md-12">
+                                <label class="text-bold">Category under which Applied <span
+                                    class="tamil-text-color">[எந்த
+                                        வகை கீழ் விண்ணப்பித்து
+                                        இருக்கிறீர்]</span></label>
+                            </div>
+
+                        </div>
+              
+                        <div class="row row-subhead">
+                           
+                            <div class="col-md-4">
+                                <label class="text-bold">Category <span class="tamil-text-color">[வகை]</span></label>
+                                <!-- <p-dropdown [options]="parentcategorylist" class="flex-dropdown"
+                                    [style]="{minWidth: '100%'}" formControlName="app_category"
+                                    placeholder="Select a category" optionLabel="category"></p-dropdown> -->
+                                    <p-dropdown [options]="categorylist" [disabled]="isAllowedToEdit" placeholder="Please Select" class="flex-dropdown"
+                                    [style]="{minWidth: '100%'}" formControlName="app_category"></p-dropdown>
+                                <p-message severity="error" text="Category is required"
+                                    *ngIf="parentDetailsForm.controls.app_category.errors && (submitted || parentDetailsForm.controls.app_category.dirty || parentDetailsForm.controls.app_category.touched)">
+                                </p-message>
+
+                                    <!-- <p-dropdown [options]="categorylist" class="flex-dropdown"
+                                    [style]="{minWidth: '100%'}" formControlName="app_category"
+                                    placeholder="Select a category" optionLabel="label"  (onChange)="category(parentDetailsForm.value.app_category)"></p-dropdown>
+                                    
+                                <p-message severity="error" text="Field is required"
+                                    *ngIf="parentDetailsForm.controls.app_category.errors && (submitted || parentDetailsForm.controls.app_category.dirty || parentDetailsForm.controls.app_category.touched)">
+                                </p-message> -->
+                            </div>
+                            <div class="col-md-4" *ngIf="parentDetailsForm.value.app_category == '2'">
+
+                                <label class="text-bold"> Sub-Category<span class="tamil-text-color">
+                                    [துணை வகை]</span></label>
+                                <p-dropdown [options]="subcategorylist" [disabled]="isAllowedToEdit" placeholder="Please Select" class="flex-dropdown"
+                                [style]="{minWidth: '100%'}" formControlName="app_sub_category"></p-dropdown>
+                            <p-message severity="error" text="Sub category is required"
+                                *ngIf="parentDetailsForm.controls.app_sub_category.errors && (submitted || parentDetailsForm.controls.app_sub_category.dirty || parentDetailsForm.controls.app_sub_category.touched)">
+                            </p-message>
+                                <!-- <p-dropdown [options]="subcategorylist" class="flex-dropdown"
+                                    [style]="{minWidth: '100%'}" formControlName="app_sub_category"
+                                    placeholder="Select a subcategory" optionLabel="label" ></p-dropdown>
+                                    
+                                <p-message severity="error" text="Field is required"
+                                    *ngIf="parentDetailsForm.controls.app_sub_category.errors && (submitted || parentDetailsForm.controls.app_sub_category.dirty || parentDetailsForm.controls.app_sub_category.touched)">
+                                </p-message> -->
+                            </div>
+                            <div class="col-md-4" *ngIf="parentDetailsForm.value.app_category == '3'">
+                                <p-dropdown [options]="subcategorylist1" [disabled]="isAllowedToEdit" placeholder="Please Select" class="flex-dropdown"
+                                [style]="{minWidth: '100%'}" formControlName="app_sub_category"></p-dropdown>
+                            <p-message severity="error" text="Sub category is required"
+                                *ngIf="parentDetailsForm.controls.app_sub_category.errors && (submitted || parentDetailsForm.controls.app_sub_category.dirty || parentDetailsForm.controls.app_sub_category.touched)">
+                            </p-message>
+                                <!-- <p-dropdown [options]="subcategorylist1" class="flex-dropdown"
+                                    [style]="{minWidth: '100%'}" formControlName="app_sub_category"
+                                    placeholder="Select a subcategory" optionLabel="label"></p-dropdown>
+                                    
+                                <p-message severity="error" text="Field is required"
+                                    *ngIf="parentDetailsForm.controls.app_sub_category.errors && (submitted || parentDetailsForm.controls.app_sub_category.dirty || parentDetailsForm.controls.app_sub_category.touched)">
+                                </p-message> -->
+                            </div>
+                          
+                        </div>
+                    </div>
+
+                    <div class="text-right save-button">
+                        <!-- <button type="submit" class="btn btn-success" (click)="onSaveParent()">Save</button> -->
+                    </div>
+                </form>
+                  </fieldset>
+                <p-toast [style]="{marginTop: '30px'}"></p-toast>
+
+        </p-card>
+    </div>
+</div>

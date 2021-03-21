@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="main-body-content head-aln">
+
+
+        <div class="row head-row">
+            <div class=" col-md-10 head-txt">
+                <label>DISTRICT LEVEL RTE CO ORDINATOR PHONE NUMBER</label>
+            </div>
+            <div class=" col-md-2 text-right">
+                <button class="form-control btn-aln" (click)="goToHome()"><i class="fa fa-home icon-aln"
+                        aria-hidden="true"></i>Home</button>
+            </div>
+        </div>
+
+
+        <p-table #dt [columns]="cols" [value]="contact" [rows]="10" [resizableColumns]="true">
+
+            <ng-template let-childrens pTemplate="caption">
+                <div class="row  header flex-row-left">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2" style="padding-left:5px;font-size: 25px;">
+                        <div class="text-right">
+                            <i class="fa fa-file-excel-o header-icon url" aria-hidden="true"
+                                (click)="exportExcel()"></i>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header" let-data>
+                <tr>
+                    <th class="sno-header-layout text-center">S.NO</th>
+                    <th *ngFor="let col of data" [pSortableColumn]="col.field" [style.width]="col.widthstyle">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                            ariaLabelDesc="Activate to sort in descending order"
+                            ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                    </th>
+
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-i="rowIndex">
+                <tr>
+                    <td class="sno-header-layout text-center"> {{i+1}}</td>
+                    <td> {{ rowData.dist_name}} </td>
+                    <td> {{ rowData.cell_number}} </td>
+            </ng-template>
+
+        </p-table>
+
+        
+    </div>
+</div>

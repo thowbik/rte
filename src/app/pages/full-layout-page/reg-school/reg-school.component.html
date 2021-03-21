@@ -1,0 +1,235 @@
+<div class="row bk-color">
+    <div class="col-lg-12 has-chart align">
+        <p-card>
+            <div class="text-right save-button">
+                <button type="button" pButton icon="pi pi-sign-out" class="logout-font" label="Logout" (click)="showConfirmation()"></button>
+            </div>
+            <p-dialog [(visible)]="logoutdisplay"  [modal]="true" 
+[responsive]="true" 
+[style]="{width:'45%'}" 
+ >
+    <p-header>
+    Confirmation
+    </p-header>
+    <span> Are you sure you want to Logout ?</span>
+ 
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cancel()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="onLogout()"></button> 
+    </p-footer>
+</p-dialog>
+
+            <div class="col-lg-12 row">
+                <div class="col-lg-6">
+                    <h5 class="reg-title">Student/Parent Registration</h5>
+                  
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="reg-title float-right">Application number: {{registerNo}}</h5>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-success header-button" (click)="onPersonal()">1. Personal
+                    Details</button>
+                <button type="submit" class="btn btn-success header-button" (click)="onParent()">2. Parent
+                    Details</button>
+                <button type="submit" class="btn btn-success header-button" (click)="onAddress()">3. Address
+                    Details</button>
+                <button type="submit" class="btn btn-success header-button" (click)="onDocument()">4. Documents</button>
+                <button type="submit" class="btn btn-success header-button-color">5. Select Schools</button>
+            </div>
+            <div style="padding-top:20px;padding-left:5px;padding-right:5px;padding-bottom:5px" *ngIf="isAllowedToEdit">
+                <div class="row-header">
+
+                    <p-pickList [source]="list1" [target]="list2" [showSourceControls]="false"
+                        [showTargetControls]="false">
+                        <ng-template let-data pTemplate="item">
+                            <div>
+                                <div style="font-size:14px;font-weight: 500;margin:15px 5px 0 0">{{data.label}} ({{data.udise_code}}) </div>
+                            </div>
+                        </ng-template>
+                    </p-pickList>
+
+                </div>
+                <div class="text-right" style="padding-top:10px;">
+                    <!-- <button type="submit" class="btn btn-success mr-2 btn-dark" (click)="save()">Save</button> -->
+                </div>
+
+
+
+
+
+
+            </div>
+            <div style="padding-top:20px;padding-left:5px;padding-right:5px;padding-bottom:5px" *ngIf="!isAllowedToEdit">
+                <div class="row-header">
+                    <div class="inner-layout">
+
+
+                        <h4>Selected Schools</h4>
+                        <div class="border-layout">
+                            <div *ngFor="let item of selectedSchList;let i =index" class="list-layout">
+
+
+
+                                <label><span style="margin-right: 5px;">{{i+1}}</span>{{item.school_name}}</label>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <p-toast [style]="{marginTop: '30px'}"></p-toast>
+        </p-card>
+
+    </div>
+</div>
+
+
+
+
+<!-- student details pdf -->
+
+<!-- <div id="MyDIv" style="padding-left:10%;padding-right:10%">
+    <div class="card ui-card-body box-shwd" style="padding-left:10%;padding-right:10%">
+        <form [formGroup]="form" novalidate>
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="border-line">
+                        <div class="backclr-grn  font-16">
+                            <label>STUDENT DETAILS</label>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Name of the child</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="student_name" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Gender</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="gender" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Date Of Birth</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="dob" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Community</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="community_name" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Religion</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="religion_name" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Mobile No</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="mobile" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Eligible Class as per DOB</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="class" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Email ID(If any)</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="email" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-12 text-label-color">
+                                <label>Details of Father/Mother/Guardian</label>
+                            </div>
+
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Father's Name</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="parent_name" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Father's Profession</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="parent_profession" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Total Annual Income of Parents / Guardian from all sources</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="parent_income" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Category under which Applied</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="parent_type" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Residential address(Should be the same as the address proff you are
+                                    submitting)</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="map_address" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>Pincode</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="pincode" readonly>
+                            </div>
+                        </div>
+                        <div class="row row-padding">
+                            <div class="col-md-6 text-label-color">
+                                <label>District</label>
+                            </div>
+                            <div class="col-md-6 text-input-color">
+                                <input type="text" class="form-controls" formControlName="district_name" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> -->

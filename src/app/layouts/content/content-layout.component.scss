@@ -1,0 +1,12 @@
+.logout-text{
+    color :rgb(255, 255, 255);
+    font-family:Poppins;
+    font-weight: 600px;
+}
+.flex-end {
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    place-content: flex-end flex-start;
+    align-items: flex-end;
+}

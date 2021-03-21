@@ -1,0 +1,108 @@
+<div class="container-fluid" *ngIf="pageStage === 1">
+  <div class="main-body-content head-aln">
+
+
+    <div class="row">
+      <div class="col-md-2 head-btn">
+        <button class="form-control btn-aln" (click)="goToHome()"><i class="fa fa-home icon-aln" aria-hidden="true"></i>Home</button>
+      </div>
+    </div>
+
+
+    <p-table #dt [columns]="dataHeader" [value]="RTEdata" [resizableColumns]="true">
+
+      <ng-template pTemplate="caption">
+        <div class="row">
+          <div style="text-align:left" class="col-md-6">
+            <input type="text" pInputText size="20" placeholder="Search"
+              (input)="dt.filterGlobal($event.target.value, 'contains')" class="form-control search-aln">
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-rteData>
+        <tr class="text-center">
+          <th class="sno-header-layout">S.No</th>
+          <th *ngFor="let col of rteData" [pSortableColumn]="col.field" [style.width]="col.widthstyle">
+            {{col.header}}
+            <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+              ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order">
+            </p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rteData let-rowData let-columns="columns" let-i="rowIndex">
+        <tr class="text-center">
+          <td class="sno-header-layout text-center"> {{i+1}} </td>
+          <td class="text-left"><a href="javascript:void(0)" (click)="onSelectedDistrict(rteData.district_id)">
+              {{rteData.district_name}} </a></td>
+          <td>{{rteData.tot}}</td>
+          <!-- <td style="text-align: center;">{{rteData.rte_seats}}</td> -->
+        </tr>
+      </ng-template>
+
+
+    </p-table>
+
+  </div>
+</div>
+
+<!-- Stage 2 -->
+
+<div class="container-fluid" *ngIf="pageStage === 2">
+  <div class="main-body-content head-aln">
+
+
+    <div class="row">
+      <div class="col-md-2 head-btn">
+        <button class="form-control btn-aln" (click)="goToHome()"><i class="fa fa-home icon-aln" aria-hidden="true"></i>Home</button>
+      </div>
+      <div class="col-md-2 back-btn-aln" >
+        <button class="form-control btn-aln" (click)="goToback()"><i class="fa fa-step-backward icon-aln" aria-hidden="true"></i>Back</button>
+      </div>
+    </div>
+
+
+    <p-table #dt [columns]="dataHeader2" [value]="rteDataSchool" [resizableColumns]="true" [paginator]="true"
+      [rows]="10">
+
+      <ng-template pTemplate="caption">
+        <div class="row">
+          <div style="text-align:left" class="col-md-6">
+                <input type="text" pInputText size="20" placeholder="Search"
+                  (input)="dt.filterGlobal($event.target.value, 'contains')" class="form-control search-aln">
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-rteData>
+        <tr class="text-center">
+          <th class="sno-header-layout">S.No</th>
+          <th *ngFor="let col of rteData" [pSortableColumn]="col.field" [style.width]="col.widthstyle">
+            {{col.header}}
+            <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+              ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order">
+            </p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rteData let-rowData let-columns="columns" let-i="rowIndex">
+        <tr class="text-center" >
+          <td class="sno-header-layout"> {{i+1}} </td>
+          <td class="text-left"> {{rteData.edu_dist_name}}</td>
+          <td>{{rteData.udise_code}}</td>
+          <td class="text-left">{{rteData.school_name}}</td>
+          <!-- <td>{{rteData.rte_seats}}</td> -->
+          <td>{{rteData.school_type}}</td>
+          <td *ngIf="rteData.entry_class == 1">I</td>
+          <td *ngIf="rteData.entry_class == 13">LKG</td>
+          <td *ngIf="rteData.entry_class ==  null">-</td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+
+  </div>
+</div>

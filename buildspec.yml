@@ -1,0 +1,21 @@
+version: 0.2
+env:
+  variables:
+    S3_BUCKET: "emis-rte-production"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+      - npm install -g @angular/cli
+  build:
+    commands:
+      - echo Build started on `date`
+      - ng build --configuration=production --aot
+  post_build:
+     commands:
+      - aws s3 sync ./dist s3://${S3_BUCKET} --acl 'public-read' --delete
+      - echo Build completed on `date`
